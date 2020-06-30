@@ -63,7 +63,7 @@ jobs:
         sudo apt-get install libelf-dev ecj -y
         sudo apt-get install qemu-utils mkisofs -y
         sudo apt-get install libpam0g-dev libssh2-1-dev libidn2-0-dev libcap-dev liblzma-dev libjansson-dev -y
-        sudo apt-get install libglib2.0-dev -y
+        sudo apt-get install libglib2.0-dev upx -y
         sudo apt-get autoremove --purge -y
         sudo apt-get clean
         sudo timedatectl set-timezone Asia/Shanghai
