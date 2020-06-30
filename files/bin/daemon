@@ -1,0 +1,25 @@
+#!/bin/sh
+function check_apcupsd() {
+  NAME=apcupsd
+  PID=$(pidof apcupsd)
+  if [ $? == 1 ];then
+    logger \"$0: Starting ${NAME} ...\"
+    /etc/init.d/apcupsd restart
+  else
+    logger \"$0: ${NAME} already running: $(pidof ${NAME})\"
+  fi
+}
+
+function check_openvpn() {
+  NAME=openvpn
+  PID=$(pidof ${NAME})
+  if [ $? == 1 ];then
+    logger \"$0: Starting ${NAME} ...\"
+    /etc/init.d/openvpn restart
+  else
+    logger \"$0: ${NAME} already running: $(pidof ${NAME})\"
+  fi
+}
+
+check_apcupsd
+check_openvpn
