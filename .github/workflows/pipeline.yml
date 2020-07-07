@@ -1,22 +1,22 @@
 name: OpenWrt Firmware For x86_64
 
-on:
-  push:
-    branches:
-    - master
-
 # on:
 #   push:
 #     branches:
-#       - master
-#     paths:
-#       - '.github/workflows/x86_64.yml'
-#       - 'config'
-#       - 'files'
-#       - 'diy.sh'
-#       - 'feeds.conf.default'
-#   schedule:
-#     - cron: '00 18 * * *'
+#     - master
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/pipeline.yml'
+      - 'config'
+      - 'files'
+      - 'diy.sh'
+      - 'feeds.conf.default'
+  schedule:
+    - cron: '00 18 * * *'
 
 jobs:
   build:
