@@ -34,7 +34,7 @@ jobs:
         ./action.sh build
         ./action.sh artifact
 
-    - name: Make the Artifact
+    - name: Set Release Name
       id: artifact
       run: |
         release_tag="$(date +%Y-%m-%d)"
