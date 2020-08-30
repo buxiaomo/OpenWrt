@@ -66,23 +66,30 @@ function build(){
 function artifact(){
 	mkdir -p ./openwrt-x86-64-squashfs-img
 	cp ./openwrt/bin/targets/x86/64/openwrt-x86-64-generic-squashfs-combined.img.gz ./openwrt-x86-64-squashfs-img
-    cp ./openwrt/bin/targets/x86/64/config.buildinfo ./openwrt-x86-64-squashfs-img
+  cp ./openwrt/bin/targets/x86/64/config.buildinfo ./openwrt-x86-64-squashfs-img
 	zip -r openwrt-x86-64-squashfs-img.zip ./openwrt-x86-64-squashfs-img
 
 	mkdir -p ./openwrt-x86-64-ext4-img
 	cp ./openwrt/bin/targets/x86/64/openwrt-x86-64-generic-ext4-combined.img.gz ./openwrt-x86-64-ext4-img
-    cp ./openwrt/bin/targets/x86/64/config.buildinfo ./openwrt-x86-64-ext4-img
+  cp ./openwrt/bin/targets/x86/64/config.buildinfo ./openwrt-x86-64-ext4-img
 	zip -r openwrt-x86-64-ext4-img.zip ./openwrt-x86-64-ext4-img
 
 	mkdir -p ./openwrt-x86-64-squashfs-vmdk
 	cp ./openwrt/bin/targets/x86/64/openwrt-x86-64-generic-squashfs-combined.vmdk ./openwrt-x86-64-squashfs-vmdk
-    cp ./openwrt/bin/targets/x86/64/config.buildinfo ./openwrt-x86-64-squashfs-vmdk
+  cp ./openwrt/bin/targets/x86/64/config.buildinfo ./openwrt-x86-64-squashfs-vmdk
 	zip -r openwrt-x86-64-squashfs-vmdk.zip ./openwrt-x86-64-squashfs-vmdk
 
 	mkdir -p ./openwrt-x86-64-ext4-vmdk
 	cp ./openwrt/bin/targets/x86/64/openwrt-x86-64-generic-ext4-combined.vmdk.gz ./openwrt-x86-64-ext4-vmdk
     cp ./openwrt/bin/targets/x86/64/config.buildinfo ./openwrt-x86-64-ext4-vmdk
 	zip -r openwrt-x86-64-ext4-vmdk.zip ./openwrt-x86-64-ext4-vmdk
+}
+
+function auto(){
+	cleanup
+	init
+	build
+	artifact
 }
 
 $@

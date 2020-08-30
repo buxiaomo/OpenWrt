@@ -1,22 +1,22 @@
 name: OpenWrt Firmware For x86_64
 
-on:
-  push:
-    branches:
-    - master
-
 # on:
 #   push:
 #     branches:
-#       - master
-#     paths:
-#       - '.github/workflows/pipeline.yml'
-#       - 'config'
-#       - 'files'
-#       - 'diy.sh'
-#       - 'feeds.conf.default'
-#   schedule:
-#     - cron: '00 18 * * *'
+#     - master
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/pipeline.yml'
+      - 'config'
+      - 'files'
+      - 'diy.sh'
+      - 'feeds.conf.default'
+  schedule:
+    - cron: '0 24 * * 5'
 
 jobs:
   build:
@@ -26,7 +26,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Clean up disk space
+    - name: Auto Build
       run: |
         set -x
         ./action.sh cleanup
